@@ -14,6 +14,11 @@
 
 /* Transition Styles */
 
+/* Our first animation related style includes the navigation links where they will be given an image that resembles a
+redicle and will be set to a size of zero percent to hide it.
+The text itself, on the other hand, will be given a yellowish color with a transition applying this color in point eight
+seconds with the background size done in point three seconds. */
+
 nav a {
     background: url("ba_target.png") center no-repeat;
     background-size: 0%;
@@ -21,23 +26,41 @@ nav a {
     transition: color 0.8s, background-size 0.3s;
 }
 
+/* Next for the navigation links is how they are affected when hovered over. In that case, the size of the background
+image is put to its full size and the text color is adjusted to a redish one instead. */
+
 nav a:hover {
     background-size: 100%;
     color: rgb(244, 130, 130);
 }
 
+/* Now we get over to the velocity diagram styles. */
+
+/* Our first affecting the redBall image with its ID in the div it germinates within, and that case being with an animation
+that initiates a keyframe of "moveRed" to be established later in here, and that will be made with a five second linear 
+motion, albeit, done infinitly many times. */
+
 div #redBall {
     animation: moveRed 5s linear infinite;
 }
+
+/* Next is the blueBall image that is effect much the same way with it's ID and all, this time with the keyframe 
+animation instead of "moveBlue".*/
 
 div #blueBall {
     animation: moveBlue 5s linear infinite;
 }
 
+/* Affecting both the "redSpeed1" and "blueSpeed1" divs is an animation applied where "hideText" is done in five seconds,
+once again also with a linear, infinite manner. */
+
 div #redSpeed1,
 div #blueSpeed1 {
     animation: hideText 5s linear infinite;
 }
+
+/* Applying now to the divs of "redSpeed2" and "blueSpeed2" is "showText" that will, yet again, be done for five seconds
+in a linear fashion infinite times. */
 
 div #redSpeed2,
 div #blueSpeed2 {
@@ -46,16 +69,28 @@ div #blueSpeed2 {
 
 /* Animation Styles */
 
+/* Now into our actual animations is our first one with the "moveRed" keyframe, that will be applied to the Red Ball image. */
+
 @keyframes moveRed {
+
+    /* It starts by having what it effects (the Red Ball) start at zero percent to the left with a drop shadow of a negative
+    forty pixel horizontal offset, and a twenty pixel, verticle offset, also containing a blue of twenty five pixels. This
+    shadow is also made a gray shade of color. */
 
     0% {
         left: 0px;
         filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
     }
 
+    /* At the forty nine percent, their is a transformation that will ensure scalling the X value of "1.0". */
+
     49% {
         transform: scaleX(1.0);
     }
+
+    /* At the half way point, the left position is then made into three hundred and eighty pixels with another drop shadow
+    of the same color, but this time with no offsets and blue effect. The scaleX transform is also changed to a value of
+    "0.4" this time around. */
 
     50% {
         left: 380px;
@@ -63,9 +98,15 @@ div #blueSpeed2 {
         transform: scaleX(0.4);
     }
 
+    /* Just after the half way point, a transformation is then applied back to a scaleX property value to "1.0". */
+
     51% {
         transform: scaleX(1.0);
     }
+
+    /* Once the "moveRed" animation has reached its end point, it declares a left position of zero pixels, and a drop
+    shadow yet again of negative forty in horizontal offset, twenty in verticle offset, and twenty five in blur, while
+    still retaining the same shade of gray for its shadow. */
 
     100% {
         left: 0px;
@@ -74,7 +115,14 @@ div #blueSpeed2 {
 
 }
 
+/* Next, we have our animation of "moveBlue" being applied to the Blue Ball image this time.
+
+Most of these keyframes are actuall identicle to "moveRed" except for the following.*/
+
 @keyframes moveBlue {
+
+    /* At zero percent, the right positioning is set to zero pixels instead of the left positioning, and the horizontal 
+    offset is a positive forty instead of a negative forty, both to fit how the blue ball is on the right side instead.  */
 
     0% {
         right: 0px;
@@ -82,8 +130,10 @@ div #blueSpeed2 {
     }
 
     49% {
-        transform: scaleX(1);
+        transform: scaleX(1.0);
     }
+
+    /* Similarly here, the right is set to three hundred and eighty pixels instead this time, to it being on right again. */
 
     50% {
         right: 380px;
@@ -92,8 +142,12 @@ div #blueSpeed2 {
     }
 
     51% {
-        transform: scaleX(1);
+        transform: scaleX(1.0);
     }
+
+    /* And again, the right is set to zero pixels, while the drop shadow is made into positive one hundred and twenty
+    pixels instead of negative forty pixels. This is because the ball is three times smaller, so the offset distances
+    must be three times away to properly represent this.  */
 
     100% {
         right: 0px;
@@ -102,7 +156,11 @@ div #blueSpeed2 {
 
 }
 
+    /* "showText" is our next animation that will be affecting the "redSpeed2" and "blueSpeed2" div elements. */
+
 @keyframes showText {
+
+    /* Simply put, this will display both div elements completely invisable from the start to the forty nine percent mark... */
 
     0% {
         opacity: 0;
@@ -111,6 +169,8 @@ div #blueSpeed2 {
     49% {
         opacity: 0;
     }
+
+    /* ...to then displaying them at full from the fifty one perecent mark to when the animation finishes. */
 
     51% {
         opacity: 1;
@@ -122,7 +182,11 @@ div #blueSpeed2 {
 
 }
 
+/* Last, but not least is the "hideText" animation applying this time to the "redSpeed1" and "blueSpeed1" elements. */
+
 @keyframes hideText {
+
+    /* Inversly, this one starts out making both divs completely apparent from zero to forty nine percent... */
 
     0% {
         opacity: 1;
@@ -131,6 +195,8 @@ div #blueSpeed2 {
     49% {
         opacity: 1;
     }
+
+    /* ...until the fifty one percent mark where it is then make to be not seen for the rest of the keyframes.  */
 
     51% {
         opacity: 0;
